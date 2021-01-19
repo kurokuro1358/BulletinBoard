@@ -10,9 +10,9 @@
 	<body class="is-preload">
 
     <?php
-    $server = "mysql1.php.xdomain.ne.jp";
-    $user = "tora3blog_worker";
-    $pass = "Kingu822";
+    $server = "localhost";
+    $user = "kurokuro";
+    $pass = "secret";
     $database = "tora3blog_blog";
     ?>
 
