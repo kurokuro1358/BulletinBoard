@@ -2,34 +2,18 @@
 
 <?php
 //MySQLに接続
-$db = mysqli_connect($server, $user, $pass);
-if (!$db) {
-    echo "Cannot connect to MySQL<br>";
-    exit();
-}
-
-//データベースの作成と接続
-mysqli_query($db, "create database if not exists ".$database." default character set utf8");
-if (!mysqli_select_db($db, $database)) {
-    echo "Cannot connect to database.<br>";
-}
+connectMySQL();
 
 //テーブルの作成
-mysqli_query($db, "create table if not exists article(
-  number int auto_increment,
-  date varchar(20) not null,
-  author varchar(50) not null,
-  password varchar(255) not null,
-  title varchar(100) not null,
-  content text not null,
-  primary key(number)
-)");
+$query = "create table if not exists article(number int auto_increment, date varchar(20) not null, author varchar(50) not null, password varchar(255) not null, title varchar(100) not null, content text not null, primary key(number))";
+mysqlQuery($query);
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['number'])) {
     $number = $_POST['number'];
-    $sql = "select date, author, title, content from article where number=".$number;
-    $result = mysqli_query($db, $sql);
-    while ($data = mysqli_fetch_array($result)) { ?>
+    $query = "select date, author, title, content from article where number=".$number;
+    $datas = getQuery($query);
+    foreach($datas as $data){ 
+?>
     <article id="work" class="wrapper style2">
       <div class="container">
           <div class="row">

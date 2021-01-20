@@ -9,13 +9,6 @@
 	</head>
 	<body class="is-preload">
 
-    <?php
-    $server = "localhost";
-    $user = "kurokuro";
-    $pass = "secret";
-    $database = "tora3blog_blog";
-    ?>
-
 		<!-- Nav -->
 			<nav id="nav">
 				<ul class="container">
@@ -40,3 +33,7 @@
           </div>
         </div>
       </article>
+
+      <?php
+      include("template.php");
+      ?>

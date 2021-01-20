@@ -2,28 +2,11 @@
 
 <?php
 //MySQLに接続
-$db = mysqli_connect($server, $user, $pass);
-if (!$db) {
-    echo "Cannot connect to MySQL<br>";
-    exit();
-}
-
-//データベースの作成と接続
-mysqli_query($db, "create database if not exists ".$database." default character set utf8");
-if (!mysqli_select_db($db, $database)) {
-    echo "Cannot connect to database.<br>";
-}
+connectMySQL();
 
 //テーブルの作成
-mysqli_query($db, "create table if not exists article(
-  number int auto_increment,
-  date varchar(20) not null,
-  author varchar(50) not null,
-  password varchar(255) not null,
-  title varchar(100) not null,
-  content text not null,
-  primary key(number)
-  )");
+$query = "create table if not exists article(number int auto_increment, date varchar(20) not null, author varchar(50) not null, password varchar(255) not null, title varchar(100) not null, content text not null, primary key(number))";
+mysqlQuery($query);
 
   if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['author']) && isset($_POST['password']) && isset($_POST['title']) && isset($_POST['content'])) {
       $author = $_POST['author'];
@@ -32,7 +15,9 @@ mysqli_query($db, "create table if not exists article(
       $content = $_POST['content'];
       $date = date('Y年m月d日');
 
-      mysqli_query($db, "insert into article (date, author, password, title, content) values ('".$date."','".$author."','".$password."' ,'".$title."','".$content."')"); ?>
+      $query = "insert into article (date, author, password, title, content) values ('".$date."','".$author."','".$password."' ,'".$title."','".$content."')";
+      mysqlQuery($query);
+      ?>
     <div class="row">
       <h1><strong>記事作成</strong></h1>
       <div class="col-10 offset-1">
