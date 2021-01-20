@@ -19,7 +19,7 @@ mysqlQuery($query);
       mysqlQuery($query);
       ?>
     <div class="row">
-      <h1><strong>記事作成</strong></h1>
+      <h1 class="mx-auto"><strong>記事作成</strong></h1>
       <div class="col-10 offset-1">
         <section class="box style1">
           <h3>投稿完了！</h3>
@@ -41,7 +41,7 @@ mysqlQuery($query);
               <input type="text" name="author" required>
             </div><br>
             <div class="form_text"><label>パスワード</label>
-              <input type="text" name="password" required>
+              <input type="password" name="password" required>
             </div><br>
             <div class="form_text"><label>タイトル</label>
               <input type="text" name="title" required>

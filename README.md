@@ -36,3 +36,19 @@
     ユーザー名：kurokuro   
     ホスト名：localhost  
     パスワード：secret
+
+- ## デモ
+    1. サーバーを起動した状態で、[http://localhost:8888/](http://localhost:8888/)にアクセスする。  
+    ![ホーム画面](https://dl.dropboxusercontent.com/s/gnvl93m117i1fw5/tora_index.png)  
+
+    2. ページ上部の記事作成より、記事を作成する。  
+    ![記事作成画面](https://dl.dropboxusercontent.com/s/r2pzn6hvcbcg7ev/tora_create.png)  
+
+    3. [ホーム画面](http://localhost:8888/)に戻り、投稿を確認する。  
+    ![ホーム画面](https://dl.dropboxusercontent.com/s/1kqsa5n3piga6rf/article.png)
+
+
+- ## 注意した機能や工夫した点  
+    - 誰でも、登録などの面倒な作業をしなくても、簡単に投稿ができるようにしました。
+    - どの端末からでも見栄えが良いように、Bootstrapを用いて、レスポンシブデザインに対応させました。
+    - よく使う機能に関しては、関数としてまとめ、template.phpにまとめました。
